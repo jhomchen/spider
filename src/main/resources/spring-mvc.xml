@@ -38,7 +38,18 @@
         <property name="suffix" value=".jsp" />
         <property name="order" value="1" />
     </bean>
-
+    
+    <mvc:interceptors>
+         <mvc:interceptor>
+             <mvc:mapping path="/user/*"/>
+             <mvc:mapping path="/login/*"/>
+             <mvc:mapping path="/home/*"/>
+              <!--放行部分请求-->
+             <mvc:exclude-mapping path="/login/toLogin"/>
+             <bean id="loginIntercepter" class="com.jh.ssm.interceptor.LoginInterceptor"/>
+         </mvc:interceptor>
+      </mvc:interceptors>
+     <mvc:annotation-driven /> 
     <!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
     <bean id="multipartResolver"
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

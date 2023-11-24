@@ -2,10 +2,12 @@
 <html>     
 <head>     
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
-<title>usersInfo</title>     
+<title>usersInfo</title>
+<link rel="stylesheet" href="../css/style.css">  
 </head>     
 <body>     
-    <div>  
+    <div> 
+        <img src="../images/banner.jpg">
         username : ${user.name},   
         password : ${user.age}  
     </div>     

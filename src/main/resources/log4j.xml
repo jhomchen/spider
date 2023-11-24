@@ -37,7 +37,7 @@
 <!-- Threshold屏蔽级别之下的日志输出 -->
 <param name="Threshold" value="DEBUG"/>
 <param name="encoding" value="UTF-8"/>
-<param name="File" value="c:/SchoolLog/SchoolLog_"/>
+<param name="File" value="user/apple/ssmLog/SSMLog_"/>
 <param name="DatePattern" value="'debug_'yyyy-MM-dd'.log'"/>
 <layout class="org.apache.log4j.PatternLayout">
 <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}] %-5p: %c - %m%n"/>
