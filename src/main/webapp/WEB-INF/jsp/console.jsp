@@ -137,7 +137,7 @@
     </div>
     <script src="../js/jquery/jQuery-2.2.0.min.js"></script>
     <script src="../js/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../js/index.js?1"></script>
     <script>
         var colorIndex = 0;
         $(function(){

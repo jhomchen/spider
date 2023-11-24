@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jh.ssm.dao.SongsMapper">
+    
+
+    
+    <sql id="selectSongsField">
+        s_id as id,s_name as name,s_ablum as ablum,s_link as link,s_cate as category,s_desc as descr,s_date as date
+    </sql>
+    <select id="selectSongsByPrimaryKey" parameterType="int" resultType="com.jh.ssm.pojo.Songs">
+         select <include refid="selectSongsField"/> from user where id=#{id}
+    </select>
+    
+    <select id="selectSongsByPage" parameterType="map" resultType="com.jh.ssm.pojo.Songs">
+         select <include refid="selectSongsField"/> from songs 
+         <!--添加where条件  -->
+         where 1=1
+         <if test="songs!=null and songs.name!=null and songs.name!=''">
+            and s_name like'%${songs.name}%'
+         </if>
+         
+         <if test="songs!=null and songs.ablum!=null and songs.ablum!=''">
+            and s_ablum like'%${songs.ablum}%'
+         </if>
+         <if test="songs!=null and songs.category!=null and songs.category!='全部'">
+            and s_cate ='${songs.category}'
+         </if>
+         limit ${pager.firstLimitParam},${pager.perPageRows} 
+    </select>
+    
+    <select id="selectCountSongs" parameterType="com.jh.ssm.pojo.Songs" resultType="int">
+       select count(*) from songs
+       <!-- 添加where条件-->
+            where 1=1
+         <if test="name!=null and name!=''">
+            and s_name like'%${name}%'
+         </if>
+         
+         <if test="ablum!=null and ablum!=''">
+            and s_ablum like'%${ablum}%'
+         </if>
+         <if test="category!=null and category!='' and category!='全部'">
+            and s_cate ='${category}'
+         </if>
+    </select>
+
+    
+</mapper>

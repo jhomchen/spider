@@ -44,6 +44,7 @@
              <mvc:mapping path="/user/*"/>
              <mvc:mapping path="/login/*"/>
              <mvc:mapping path="/home/*"/>
+             <mvc:mapping path="/songs/*"/>
               <!--放行部分请求-->
              <mvc:exclude-mapping path="/login/toLogin"/>
              <bean id="loginIntercepter" class="com.jh.ssm.interceptor.LoginInterceptor"/>
